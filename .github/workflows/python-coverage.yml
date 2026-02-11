@@ -18,8 +18,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v4
-          with:
-            python-version: 3.13
+        with:
+          python-version: "3.13"
 
       - name: Install dependencies
         run: |
@@ -33,10 +33,10 @@ jobs:
 
       - name: Coverage comment
         uses: py-cov-action/python-coverage-comment-action@v3
-          with:
-            GITHUB_TOKEN: ${{ github.token }}
-            MINIMUM_GREEN: 90
-            MINIMUM_ORANGE: 70
+        with:
+          GITHUB_TOKEN: ${{ github.token }}
+          MINIMUM_GREEN: 90
+          MINIMUM_ORANGE: 70
 
       - name: Fail if below threshold
         run: coverage report --fail-under=90          
